@@ -1,0 +1,45 @@
+a.	As I reset the array as the function starts, I initially used a for loop, but there was a dummy data left in the array. When the program tested the second test, it didn't work properly as the array had wrong data. So I had to figure out why there is dummy data left. The loop was not fully reset, so I tried other way to reset the array.
+
+b.	get input text and input crib
+	
+	change input text and input crib to lower case in order to compare
+	
+	make clean text and crib with no special characters
+
+	separate text and crib into words
+
+	compare length of words in text and crib
+
+	compare alphabet of the text and crib
+		if the key fits that text, return true and modify the text
+
+c.	runtest("Hirdd ?2 ejsy zu drvtry od.\nO'z fodvtrry.\n", "my!23?;secret");
+		output: true
+		hiEss ?2 ejsT MY SECRET oS.
+		o'M foSCREET.
+		-crib with non letter
+    runtest("Hirdd ejsy zu drvtry od.\nO'z fodvtrry.\n", "shadow");
+		output: false
+		LEwTo ANx Mmeso ENTER TdE vANf vo TdE vAzf xbbR.
+		SdbRTo iAITS IN wRbNT IN TdE eETAiAo zAR
+		xbN'T LET TdE TELLER TRIn TdE SILENT ALARM.
+		zD 31 IS zdALLENeINe!
+		-crib that does not fit
+    runtest("Rswjo qgx Tmeuo sgjsy jds vqgf vo jds vqzf xbby.\n"
+			"Udbyjo iqcju cg wybgj cg jds esjqiqo zqy\n"
+			"Xbg'j rsj jds jsrrsy jycn jds ucrsgj qrqyt.\n"
+			"ZU 31 cu zdqrrsgecge!", "silent alarm");
+		-crib with long string
+    runtest("F gspt fe! zyxZYXzyx--Abca abCa    bdefg## $$dsptrqtj6437 wvuWVUwvu\n\n8 9\n", "   hush???hUSh---    --- until NovemBER !! ");
+		output: true
+		I LOVE IT! zyxzyxzyx--HUSH HUSH    UNTIL## $$NOVEMBER6437 wvuwvuwvu
+
+		8 9
+		-text with non letters, crib with non letters
+    runtest("F gspt fe! zyxZYXzyx--Abca abCa    bdefg## $$dsptrqtj6437 wvuWVUwvu\n\n8 9\n", "hush hush until november");
+		output: true
+		I LOVE IT! zyxzyxzyx--HUSH HUSH    UNTIL## $$NOVEMBER6437 wvuwvuwvu
+
+		8 9
+		-text with non letters
+

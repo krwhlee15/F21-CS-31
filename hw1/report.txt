@@ -1,0 +1,6 @@
+Wonhee Lee
+905282414
+
+For original.cpp, I input a proper integer, which was 30, 20, 10, which shows a proper value of output.
+For logic_error.cpp, I filpped the inequality sign to produce logical error. 
+For compile_error.cpp, I put a semicolon right next to if statement. It might compile with the semicolon next to it, but the line after the if statement would not be considered as a part of the if statement, so it can produce a wrong output. In this case, there was a else statement included, so there shouldn't be a semicolon next to if statement since else has to follow up with if statement, so the compile error occurred. Also, I deleted the semicolon next to the line with using namespace std, whichs expected to be used in order to use the std functions.  

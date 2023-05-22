@@ -1,0 +1,77 @@
+#Obstacles
+One of the obstacles was I was not familiar with debugging process. I know I have to get used to gdb, but for this project, I manually printed out the values of variables. While checking the value, the value of the variable 'steps' were returning unexpected value. It had to return 2, but it returned 50 instead. I realized that the number in the input string is considered as a ASCII code, so the '2' was a character which was 50 in ASCII code. So I had to subtract 48 so that I can convert it to a regular decimal integer.
+
+#Description/Pseudocode
+bool hasCorrectForm(string plan)
+{
+	if the plan does not end with a turn letter
+		return false
+	
+	for each of the letters from the plan
+		if it contains a letter that is not a turn letter
+			return false
+		else if it contains three or more digits
+			return false
+	return true
+}
+
+int determineSafeDistance(int r, int c, char dir, int maxSteps)
+{
+	if the input position is invalid
+		return -1
+	
+	based on the input direction
+		try to take maxSteps until blocked by wall or edge
+			if meet wall or edge before maxSteps
+				return maximum valid steps
+}
+
+int obeyPlan(int sr, int sc, int er, int ec, char dir, string plan, int& nsteps)
+{
+	if starting or ending position is invalid, or input plan has wrong form
+		return 2
+
+	repeatedly checking plan
+		if it is turn letter
+			make the turn
+		if it is digit
+			take the step
+			check the safe distance
+			add it on nsteps
+			
+			if the move is blocked by wall or edge
+				return 3
+
+			update the position based on the steps
+
+			if the move ended at ending position
+				return 0;
+
+		
+		when the plan is completed but not at the end position, return 1
+}
+
+
+#Test Data
+int main()
+{
+    //Initializing Maze
+	setSize(3,4);
+    setWall(1,4);
+    setWall(2,2);
+    setWall(3,2);
+    
+	assert(hasCorrectForm("2R1r"));		//Correct form, return true
+    assert(!hasCorrectForm("1Lx"));		//Wrong form, return false
+    assert(determineSafeDistance(3, 1, 'N', 2) == 2);	
+    int len;
+    len = -999;  // so we can detect whether obeyPlan sets len
+    assert(obeyPlan(3,1, 3,4, 'S', "LL2R2r2L1R", len) == 0  &&  len == 7);	//made it through the end, return 0, nsteps = 7
+    len = -999;  // so we can detect whether obeyPlan sets len
+    assert(obeyPlan(3,1, 3,4, 'N', "1Lx", len) == 2  &&  len == -999);	//wrong form of plan, should return 2, nsteps should not change, 
+    len = -999;  // so we can detect whether obeyPlan sets len
+    assert(obeyPlan(2,4, 1,1, 'w', "3R1L", len) == 3  &&  len == 1);	//blcoekd by wall, return 3, nsteps = 1;
+    
+	cerr << "All tests succeeded" << endl;
+	return 0;
+}

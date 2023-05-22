@@ -1,0 +1,37 @@
+#Obstacles
+The only obstacle I went over was the circleLeft function. I was accessing to a invalid index inside the loop, and it was hard to find since the error message was a something that I never seen before. I copied the file and run it on my own terminal instead of school server, and I was able to find the error. I used a[i] = a[(i+1)%n] to fix the issue instead of a[i] = a[i+1]. 
+
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+int main()
+{
+    string h[7] = { "moana", "mulan", "ariel", "tiana", "", "belle", "elsa" };
+    assert(locate(h, 7, "belle") == 5);
+    assert(locate(h, 7, "ariel") == 2);
+    assert(locate(h, 2, "ariel") == -1);
+    assert(locationOfMax(h, 7) == 3);
+
+    string g[4] = { "moana", "mulan", "belle", "raya" };
+    assert(locateDifference(h, 4, g, 4) == 2);
+    assert(circleLeft(g, 4, 1) == 1 && g[1] == "belle" && g[3] == "mulan");
+
+    string c[4] = { "ma", "can", "tu", "do" };
+    assert(reduplicate(c, 4) == 4 && c[0] == "mama" && c[3] == "dodo");
+
+    string e[4] = { "ariel", "tiana", "", "belle" };
+    assert(subsequence(h, 7, e, 4) == 2);
+
+    string d[5] = { "mulan", "mulan", "mulan", "belle", "belle" };
+    assert(enumerateRuns(d, 5) == 2);
+
+    string f[3] = { "tiana", "ariel", "raya" };
+    assert(locateAny(h, 7, f, 3) == 2);
+    assert(flip(f, 3) == 3 && f[0] == "raya" && f[2] == "tiana");
+
+    assert(separate(h, 7, "elsa") == 3);
+
+    cout << "All tests succeeded" << endl;
+}

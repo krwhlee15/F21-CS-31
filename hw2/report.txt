@@ -1,0 +1,12 @@
+1.
+I made a mistake on the calculation part. I had to calculate the default case where the value of viles is less than 100, but I did not put the calculation part for it. So I had correct output value for case 1, but not for case 2. As it returned 71 as an output, which is a base cost for luxury car, it wasn't too hard to figure out that I missed the calculation part. Also for the part where it asks for string as an input, it skipped the next part of getting an input since there is a unwanted buffer remaining. So I put cin.ignore() to clear the previous buffer and get a new string input.
+
+2.
+starting odometer reading negative(-1, -, -, -, -, -)
+ending odometer reading less than starting reading(10, 8, -, -, -, -)
+number of rental days not positive(10, 12, -1, -, -, -)
+empty string provided for customer name(10, 12, 1, , -, -)
+luxury status not y or n(10, 12, 1, a, NO, -)
+month number not an integer between 1 and 12 inclusive(10, 12, 1, a, y, 0)
+case1: (2417, 2754, 4, Lewis Hamilton, n, 10)
+case2: (1885, 1973, 1, Richard Petty, y, 2)
